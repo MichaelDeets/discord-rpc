@@ -196,6 +196,7 @@ static void Discord_UpdateConnection(void)
                     auto username = GetStrMember(user, "username");
                     auto avatar = GetStrMember(user, "avatar");
                     auto joinReq = JoinAskQueue.GetNextAddMessage();
+					auto global_name = GetStrMember(user, "global_name");
                     if (userId && username && joinReq) {
                         StringCopy(joinReq->userId, userId);
                         StringCopy(joinReq->username, username);
@@ -324,6 +325,7 @@ extern "C" DISCORD_EXPORT void Discord_Initialize(const char* applicationId,
         auto userId = GetStrMember(user, "id");
         auto username = GetStrMember(user, "username");
         auto avatar = GetStrMember(user, "avatar");
+        auto global_name = GetStrMember(user, "global_name");
         if (userId && username) {
             StringCopy(connectedUser.userId, userId);
             StringCopy(connectedUser.username, username);
